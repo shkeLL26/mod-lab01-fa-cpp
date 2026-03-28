@@ -1,4 +1,5 @@
 // Copyright 2022 UNN-IASR
+// Comment to pull request
 #include "fun.h"
 
 unsigned int faStr1(const char *str) {
