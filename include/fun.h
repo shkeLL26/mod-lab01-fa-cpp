@@ -1,6 +1,4 @@
 // Copyright 2022 UNN-IASR
-#include <iostream>
-
 #ifndef INCLUDE_FUN_H_
 #define INCLUDE_FUN_H_
 
