@@ -14,11 +14,9 @@ unsigned int faStr1(const char* str) {
     while (str[index] != '\0') {
         if (str[index] == ' ') {
             inWord = countedWord = false;
-        }
-
-        else {
+        } else {
             inWord = true;
-            if (!countedWord && str[index] < '0' && str[index] > '9') {
+            if (!countedWord && str[index] >= '0' && str[index] <= '9') {
                 result++;
                 countedWord = true;
             }
@@ -47,19 +45,13 @@ unsigned int faStr2(const char* str) {
                 result++;
             }
             inWord = startLetterIsCapital = wordIsCorrect = false;
-        }
-
-        else {
+        } else {
             inWord = true;
             if (str[index] >= 'A' && str[index] <= 'Z') {
                 startLetterIsCapital = true;
-            }
-
-            else if (startLetterIsCapital && str[index] >= 'a' && str[index] <= 'z') {
+            } else if (startLetterIsCapital && str[index] >= 'a' && str[index] <= 'z') {
                 wordIsCorrect = true;
-            }
-
-            else {
+            } else {
                 wordIsCorrect = false;
             }
         }
@@ -86,9 +78,7 @@ unsigned int faStr3(const char* str) {
                 wordsNumber++;
             }
             inWord = false;
-        }
-
-        else {
+        } else {
             inWord = true;
             lettersNumber++;
         }
@@ -100,9 +90,9 @@ unsigned int faStr3(const char* str) {
         wordsNumber++;
     }
 
-    double result = (double)lettersNumber / wordsNumber;
-    if (result - (int)result > 0.5) {
-        return (int)result + 1;
+    double result = static_cast<double>(lettersNumber) / wordsNumber;
+    if (result - static_cast<int>(result) > 0.5) {
+        return static_cast<int>(result) + 1;
     }
-    return (int)result;
+    return static_cast<int>(result);
 }
