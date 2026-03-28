@@ -49,7 +49,7 @@ unsigned int faStr2(const char* str) {
             inWord = true;
             if (str[index] >= 'A' && str[index] <= 'Z') {
                 startLetterIsCapital = true;
-            } else if (startLetterIsCapital && 
+            } else if (startLetterIsCapital &&
                        str[index] >= 'a' && str[index] <= 'z') {
                 wordIsCorrect = true;
             } else {
