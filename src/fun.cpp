@@ -9,16 +9,19 @@ unsigned int faStr1(const char* str) {
     int index = 0;
     int result = 0;
     bool inWord = false;
-    bool countedWord = false;
+    bool numberInWord = false;
 
     while (str[index] != '\0') {
         if (str[index] == ' ') {
-            inWord = countedWord = false;
-        } else {
-            inWord = true;
-            if (!countedWord && str[index] >= '0' && str[index] <= '9') {
+            if (inWord && !numberInWord) {
                 result++;
-                countedWord = true;
+            }
+            inWord = numberInWord = false;
+        }
+        else {
+            inWord = true;
+            if (str[index] >= '0' && str[index] <= '9') {
+                numberInWord = true;
             }
         }
 
@@ -45,14 +48,17 @@ unsigned int faStr2(const char* str) {
                 result++;
             }
             inWord = startLetterIsCapital = wordIsCorrect = false;
-        } else {
+        }
+        else {
             inWord = true;
             if (str[index] >= 'A' && str[index] <= 'Z') {
                 startLetterIsCapital = true;
-            } else if (startLetterIsCapital &&
-                       str[index] >= 'a' && str[index] <= 'z') {
+            }
+            else if (startLetterIsCapital &&
+                str[index] >= 'a' && str[index] <= 'z') {
                 wordIsCorrect = true;
-            } else {
+            }
+            else {
                 wordIsCorrect = false;
             }
         }
@@ -79,7 +85,8 @@ unsigned int faStr3(const char* str) {
                 wordsNumber++;
             }
             inWord = false;
-        } else {
+        }
+        else {
             inWord = true;
             lettersNumber++;
         }
